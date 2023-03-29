@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-table
+      author: MYBatishchev
+      comment: "Создание таблицы с записями о пользователях"
+      changes:
+        - createTable:
+            tableName: user
+            remarks: "Таблица с записями о пользователях"
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(250)
+                  remarks: "E-mail пользователя"
+                  constraints:
+                    unique: true
+                    nullable: true
+              - column:
+                  name: password
+                  type: text
+                  remarks: "Пароль пользователя"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: name
+                  type: varchar(100)
+                  remarks: "Имя/Фамилия пользователя"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: image
+                  type: text
+                  remarks: "Фото профиля пользователя"
+                  constraints:
+                    nullable: true
+              - column:
+                  name: provider
+                  type: varchar(15)
+                  remarks: "Провайдер аутентификации пользователя"
+                  constraints:
+                    nullable: false

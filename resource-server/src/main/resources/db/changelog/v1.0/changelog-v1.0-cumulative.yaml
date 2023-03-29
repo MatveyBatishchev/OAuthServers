@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - include:
+      relativeToChangelogFile: true
+      file: create-user-table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: create-user_role-table.yaml
+  - include:
+      relativeToChangelogFile: true
+      file: add-fk-user_role.yaml

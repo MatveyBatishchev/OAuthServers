@@ -1,0 +1,26 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/oAuth
+    username: postgres
+    password: postgres
+    hikari.schema: public
+
+  liquibase:
+    enabled: false
+    default-schema: public
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+springdoc:
+  swagger-ui:
+    path: /swagger
+    disable-swagger-default-url: true
+    doc-expansion: none
+  api-docs:
+    path: /swagger.json
