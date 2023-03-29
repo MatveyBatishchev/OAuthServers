@@ -1,5 +1,6 @@
 package com.example.authserver.config;
 
+import com.example.authserver.config.federated_identity.FederatedIdentityConfigurer;
 import com.example.authserver.config.jose.Jwks;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
@@ -42,8 +43,9 @@ public class AuthorizationServerConfig {
         OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
         http.getConfigurer(OAuth2AuthorizationServerConfigurer.class).oidc(Customizer.withDefaults()); // OpenID Connect 1.0 is enabled
         http.exceptionHandling(exceptions -> exceptions.authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login")));
+        http.apply(new FederatedIdentityConfigurer());
         http.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
-        return http.formLogin().loginPage("/login").and().build();
+        return http.formLogin(Customizer.withDefaults()).build();
     }
 
     @Bean

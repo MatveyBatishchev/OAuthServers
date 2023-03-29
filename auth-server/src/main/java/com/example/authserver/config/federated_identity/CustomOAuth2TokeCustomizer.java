@@ -1,4 +1,4 @@
-package com.example.authserver.config;
+package com.example.authserver.config.federated_identity;
 
 import com.example.authserver.models.MyUserPrincipal;
 import com.example.authserver.models.User;
@@ -18,9 +18,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * An {@link OAuth2TokenCustomizer} to map claims from a federated identity to
+ * the {@code id_token} produced by this authorization server.
+ */
 @Component
 @RequiredArgsConstructor
-public final class CustomOAuth2TokenCustomizer implements OAuth2TokenCustomizer<JwtEncodingContext> {
+public final class CustomOAuth2TokeCustomizer implements OAuth2TokenCustomizer<JwtEncodingContext> {
     private final UserRepository userRepository;
 
     @Override

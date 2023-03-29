@@ -42,6 +42,13 @@
             <!-- Submit button -->
             <button class="btn btn-primary w-100 mb-3" type="submit">Sign in</button>
         </form>
+        <div class="text-center">
+            <span class="text-secondary"><small> sign up with:</small></span><br>
+            <a class="btn btn-link btn-floating mx-1" role="link" style="font-size: 1.6em; color: #656363;"
+               th:href="@{/oauth2/authorization/google-idp}">
+                <i class="fab fa-google"></i>
+            </a>
+        </div>
     </div>
 </div>
 </body>
